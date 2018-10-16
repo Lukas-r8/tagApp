@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		125A1A122175FA5C002A9879 /* CustomClassesUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */; };
 		12AAA9E621739511003EDE96 /* CardCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAA9E521739511003EDE96 /* CardCollectionViewCells.swift */; };
 		12B856E0216E0D96004ECE98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B856DF216E0D96004ECE98 /* AppDelegate.swift */; };
 		12B856E2216E0D96004ECE98 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B856E1216E0D96004ECE98 /* LoginPage.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassesUIElements.swift; sourceTree = "<group>"; };
 		12AAA9E521739511003EDE96 /* CardCollectionViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCells.swift; sourceTree = "<group>"; };
 		12B856DC216E0D96004ECE98 /* tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B856DF216E0D96004ECE98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				12F2E1552170A7DC00FA9A2D /* UIExtensions.swift */,
+				125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				12F2E1562170A7DC00FA9A2D /* UIExtensions.swift in Sources */,
 				12B856E2216E0D96004ECE98 /* LoginPage.swift in Sources */,
+				125A1A122175FA5C002A9879 /* CustomClassesUIElements.swift in Sources */,
 				12B856E0216E0D96004ECE98 /* AppDelegate.swift in Sources */,
 				12F2E1582170B3BE00FA9A2D /* MainPage.swift in Sources */,
 				12AAA9E621739511003EDE96 /* CardCollectionViewCells.swift in Sources */,

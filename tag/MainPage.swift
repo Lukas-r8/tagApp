@@ -23,6 +23,8 @@ class MainPage: UIViewController{
         return config
     }()
     
+
+    
     let arView: ARSCNView = {
         let arSceneView = ARSCNView()
         arSceneView.autoenablesDefaultLighting = true
@@ -659,6 +661,15 @@ extension MainPage {
     }
     
     @objc func handleExportButton(){
+ 
+        let activityIndicatorView = UIActivityViewController(activityItems: [arView.snapshot()], applicationActivities: nil)
+        activityIndicatorView.accessibilityFrame = CGRect.zero//CGRect(x: 0, y: self.view.frame.height - 510, width: self.view.frame.width, height: 500)
+        
+        present(activityIndicatorView, animated: true) {
+            //completion
+        }
+        
+        
         
     }
     

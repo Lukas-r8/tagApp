@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		125A1A122175FA5C002A9879 /* CustomClassesUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */; };
+		125A1A1421764B40002A9879 /* CustomNotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125A1A1321764B40002A9879 /* CustomNotificationNames.swift */; };
+		125A1A1B21776630002A9879 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 125A1A1A21776630002A9879 /* art.scnassets */; };
 		12AAA9E621739511003EDE96 /* CardCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAA9E521739511003EDE96 /* CardCollectionViewCells.swift */; };
 		12B856E0216E0D96004ECE98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B856DF216E0D96004ECE98 /* AppDelegate.swift */; };
 		12B856E2216E0D96004ECE98 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B856E1216E0D96004ECE98 /* LoginPage.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassesUIElements.swift; sourceTree = "<group>"; };
+		125A1A1321764B40002A9879 /* CustomNotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationNames.swift; sourceTree = "<group>"; };
+		125A1A1A21776630002A9879 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		12AAA9E521739511003EDE96 /* CardCollectionViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCells.swift; sourceTree = "<group>"; };
 		12B856DC216E0D96004ECE98 /* tag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B856DF216E0D96004ECE98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				12F2E145216FECD700FA9A2D /* dotsBlur.mov */,
 				12F2E149216FECE500FA9A2D /* dust.mov */,
 				12B856E3216E0D96004ECE98 /* Main.storyboard */,
+				125A1A1A21776630002A9879 /* art.scnassets */,
 				12B856E6216E0D97004ECE98 /* Assets.xcassets */,
 				12B856E8216E0D97004ECE98 /* LaunchScreen.storyboard */,
 				12B856EB216E0D97004ECE98 /* Info.plist */,
@@ -150,6 +155,7 @@
 			children = (
 				12F2E1552170A7DC00FA9A2D /* UIExtensions.swift */,
 				125A1A112175FA5C002A9879 /* CustomClassesUIElements.swift */,
+				125A1A1321764B40002A9879 /* CustomNotificationNames.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				12F2E14A216FECE500FA9A2D /* dust.mov in Resources */,
 				12B856EA216E0D97004ECE98 /* LaunchScreen.storyboard in Resources */,
 				12B856E7216E0D97004ECE98 /* Assets.xcassets in Resources */,
+				125A1A1B21776630002A9879 /* art.scnassets in Resources */,
 				12B856E5216E0D96004ECE98 /* Main.storyboard in Resources */,
 				12B85713216E22E8004ECE98 /* Natur.mov in Resources */,
 				12F2E146216FECD700FA9A2D /* dotsBlur.mov in Resources */,
@@ -290,6 +297,7 @@
 			files = (
 				12F2E1562170A7DC00FA9A2D /* UIExtensions.swift in Sources */,
 				12B856E2216E0D96004ECE98 /* LoginPage.swift in Sources */,
+				125A1A1421764B40002A9879 /* CustomNotificationNames.swift in Sources */,
 				125A1A122175FA5C002A9879 /* CustomClassesUIElements.swift in Sources */,
 				12B856E0216E0D96004ECE98 /* AppDelegate.swift in Sources */,
 				12F2E1582170B3BE00FA9A2D /* MainPage.swift in Sources */,

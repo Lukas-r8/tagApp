@@ -32,7 +32,7 @@ class countLabel: UILabel {
     
     func setLabel(_ textLabel: String,counter:Int){
         translatesAutoresizingMaskIntoConstraints = false
-        self.text = "\(counter)\n\(textLabel)"
+        count = counter
         numberOfLines = 0
         textAlignment = .center
         textColor = .black

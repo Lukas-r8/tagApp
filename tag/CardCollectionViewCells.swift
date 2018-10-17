@@ -59,8 +59,6 @@ class customCellFirst: UICollectionViewCell {
 }
 
 
-
-
 class customCellSecond: UICollectionViewCell {
     
     

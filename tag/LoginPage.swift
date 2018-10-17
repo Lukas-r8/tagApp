@@ -12,7 +12,7 @@ import AVFoundation
 class LoginPage: UIViewController {
     
     override var prefersStatusBarHidden: Bool {return true}
-
+    
     lazy var playerLayer: AVPlayerLayer = {
         
         let urlPath = Bundle.main.path(forResource: "Natur", ofType: ".mov")
@@ -21,7 +21,7 @@ class LoginPage: UIViewController {
         let play = AVPlayer(url: url)
         play.playImmediately(atRate: 1)
         // custom notification obs: post is in appDelegate applicationWillEnterForeground method..
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.init("willEnterForeground"), object: nil, queue: nil, using: { (_) in
+        NotificationCenter.default.addObserver(forName: .appWillEnterForeground, object: nil, queue: nil, using: { (_) in
             play.seek(to: CMTime.zero)
             play.playImmediately(atRate: 1)
         })
@@ -29,6 +29,7 @@ class LoginPage: UIViewController {
             play.seek(to: CMTime.zero)
             play.playImmediately(atRate: 1)
         })
+        
         
         let layer = AVPlayerLayer(player: play)
         layer.videoGravity = AVLayerVideoGravity.resizeAspectFill

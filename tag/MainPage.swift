@@ -10,9 +10,16 @@ import Foundation
 import UIKit
 import ARKit
 
-class MainPage: UIViewController{
+class MainPage: UIViewController {
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+    let rocket: customNode = {
+       let roc = customNode()
+        roc.loadNode("arkit-rocket.dae")
+        return roc
+    }()
+    var planeNode: SCNNode!
+    var anchors = [ARAnchor]()
+
     var previousTranslation:CGFloat = 0
     var topAnchorChooseView: NSLayoutConstraint!
     var widthTextFieldAnchor: NSLayoutConstraint!
@@ -20,13 +27,15 @@ class MainPage: UIViewController{
     let arConfiguration: ARWorldTrackingConfiguration = {
         let config = ARWorldTrackingConfiguration()
         config.isAutoFocusEnabled = true
+        config.planeDetection = ARWorldTrackingConfiguration.PlaneDetection.horizontal
         return config
     }()
     
 
     
-    let arView: ARSCNView = {
+    lazy var arView: ARSCNView = {
         let arSceneView = ARSCNView()
+        arSceneView.delegate = self
         arSceneView.autoenablesDefaultLighting = true
         arSceneView.translatesAutoresizingMaskIntoConstraints = false
         return arSceneView
@@ -88,10 +97,11 @@ class MainPage: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .red
         setARConstraintsAndViews()
         setCartView()
-
+        
     }
 
 
@@ -194,6 +204,78 @@ class MainPage: UIViewController{
 
 
 
+
+
+
+// AR delegateMethods
+
+extension MainPage: ARSCNViewDelegate{
+    
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        
+        var node: SCNNode? = nil
+        
+        
+        if let planeDetected = anchor as? ARPlaneAnchor {
+            node = SCNNode()
+            let plane = SCNPlane(width: CGFloat(planeDetected.extent.x), height: CGFloat(planeDetected.extent.z))
+            plane.firstMaterial?.diffuse.contents = UIColor.blue.withAlphaComponent(0.5)
+            planeNode = SCNNode(geometry: plane)
+            planeNode.position = SCNVector3(planeDetected.center.x, 0, planeDetected.center.z)
+            planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+            node!.addChildNode(planeNode)
+            anchors.append(planeDetected)
+        }
+        
+     
+        return node
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let planeAnchor = anchor as? ARPlaneAnchor {
+            if anchors.contains(planeAnchor) {
+                if node.childNodes.count > 0 {
+                    let planeN = node.childNodes.first!
+                    planeN.position = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
+                    if let planeGeometry = planeN.geometry as? SCNPlane {
+                        planeGeometry.width = CGFloat(planeAnchor.extent.x)
+                        planeGeometry.height = CGFloat(planeAnchor.extent.z)
+                    }
+                }
+            }
+        }
+        
+        
+  
+    }
+    
+    
+    func addNodeAtTouchedLocation(location: CGPoint){
+        if anchors.count < 1 {print("No anchors added yet");return}
+        let hitObjects = arView.hitTest(location, types: ARHitTestResult.ResultType.existingPlaneUsingExtent)
+        if hitObjects.count > 0 {
+            let objects = hitObjects.first!
+            let position = SCNVector3(objects.worldTransform.columns.3.x, objects.worldTransform.columns.3.y + 0.1, objects.worldTransform.columns.3.z)
+            rocket.position = position
+            if !arView.scene.rootNode.childNodes.contains(rocket){
+                arView.scene.rootNode.addChildNode(rocket)
+            } else {
+                rocket.removeFromParentNode()
+            }
+        }
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touchedPoint = touches.first else {return}
+        let location = touchedPoint.location(in: arView)
+        
+        addNodeAtTouchedLocation(location: location)
+        
+    }
+    
+    
+}
 
 
 
